@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <body>
+      <style>
+      
+      </style>
+      <script type="text/javascript" src="/easyXDM/easyXDM.debug.js"></script>
+      <script src="jquery-1.11.3.min.js"></script>
+    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+      <svg width="1870" height="1000"  xmlns="http://www.w3.org/2000/svg">
+  
+ 
+      <defs>
+            
+    <clipPath id="path" class="svgleft">
+    <rect x="0" y="0" width="960" height="1080" />
+     
+    </clipPath>
+        <clipPath id="path2" class="svgright">
+    <rect x="960" y="0" width="960" height="1080" />
+     
+    </clipPath>        
+  </defs>
+      <foreignObject class="mask1" clip-path="url(#path)" x="0" y="10" width="1920" height="1080">
+        <body xmlns="http://www.w3.org/1999/xhtml">
+          <div id="player" style="background-color:black"></div>
+        </body>
+      </foreignObject>
+    <foreignObject class="mask2" clip-path="url(#path2)" y="10" width="1920" height="1080">
+        <body xmlns="http://www.w3.org/1999/xhtml">
+          <div id="player1" style="background-color:black;"></div>
+        </body>
+      </foreignObject>  
+  </svg>
+      
+
+    <script>
+    
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      var player1;
+      function onYouTubeIframeAPIReady() {
+         player1 = new YT.Player('player1', {
+          height: '1080',
+          width: '1920',
+          videoId: 'YuHD9h5gTS4',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange,
+			"enablejsapi": 1,
+			"showinfo": 1,
+			"rel": 0,
+			"html5": 1
+          }
+        });
+        player = new YT.Player('player', {
+          height: '1080',
+          width: '1920',
+          videoId: 'YuHD9h5gTS4',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange,
+			"enablejsapi": 1,
+			"showinfo": 1,
+			"rel": 0,
+			"html5": 1
+          }
+        });
+      }
+        
+    
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setTimeout(stopVideo, 3000);
+          done = true;
+        }
+      }
+      function stopVideo() {
+        player.pauseVideo();
+        player1.pauseVideo();
+      }
+
+    function sync() {
+     player.seekTo(0,true);
+     player1.seekTo(0,true);
+    player1.mute();
+    }
+    function myFunction() {
+          player.playVideo();
+     player1.playVideo();   
+    }
+
+    </script>
+  </body>
+    <button onclick="sync()"> Sync</button>
+    <button onclick="myFunction()"> Double Play</button>
+    <button onclick="stopVideo()">Pause</button>
+
+</html>
