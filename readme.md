@@ -6,15 +6,20 @@ This test splits a youtube video in half using SVG masks
 
 ## Code Example
 
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+Step 1. Let it load
+Step 2. Let it play
+Step 3. Let it pause
+Step 4. Press Double sync
+Step 5. Press Double Play
+Step 6. Enjoy
 
 ## Motivation
 
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
+I wanted to test splitting up youtube videos and test how clipping masks/ SVG objects interact with javascript and youtube API
 
 ## Installation
 
-Provide code examples and explanations of how to get the project.
+its an html file
 
 ## API Reference
 
