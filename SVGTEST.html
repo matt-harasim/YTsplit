@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SVG foreignObject test</title>
+    <style>
+
+        
+    .mask:hover {
+        transform: rotate(360deg);
+        transition: all 10s ease;
+        transform-origin: 100% 100%;
+    }
+        
+        
+    </style>
+
+  </head>
+<body>
+  <h1>foreignObject demo</h1>
+    
+  <svg width="1920" height="1500" xmlns="http://www.w3.org/2000/svg">
+ 
+      <defs>
+            
+    <clipPath id="path" clipPathUnits="objectBoundingBox">
+      <circle cx="0.5" cy="0.5" r="0.5" id="circle" />
+      
+    </clipPath>
+            
+  </defs>
+      <foreignObject class="mask" clip-path="url(#path)" x="0" y="10" width="1920" height="1080">
+        <body xmlns="http://www.w3.org/1999/xhtml">
+          <iframe class="element" width="1920" height="1080" src="https://www.youtube.com/embed/YuHD9h5gTS4" frameborder="0" allowfullscreen></iframe>
+        </body>
+      </foreignObject>    
+  </svg>
+</body>
+</html> 
